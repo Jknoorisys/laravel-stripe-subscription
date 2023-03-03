@@ -34,11 +34,11 @@
     <li><h5>Create Routes</h5></li>
         <p>Now we need to create an application route that we will test the application test transaction on. Open the route/web.php application route file and add the new routes</p>
         <p>Create Controller</p>
-        <p><i>php artisan make:controller PayPalController</i></p>
+        <p><i>php artisan make:controller PlanController</i></p>
         <p>Run database migrations</p>
         <p><i>php artisan migrate</i></p>
         <p>Run database seeder</p>
-        <p><i>php artisan db:seed --class=ProductsSeeder</i></p>
+        <p><i>php artisan db:seed --class=PlansSeeder</i></p>
     <li><h5>Create blade file to create payment button</h5></li>
         <p>create a view that will direct to process the transaction. Create blade view resources/views/transaction.blade.php file</p>
     <li><h5>Run the app</h5></li>
