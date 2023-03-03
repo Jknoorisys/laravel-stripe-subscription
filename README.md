@@ -42,7 +42,7 @@
     <li><h5>Create blade file to create payment button</h5></li>
         <p>create a view that will direct to process the transaction. Create blade view resources/views/transaction.blade.php file</p>
     <li><h5>Run the app</h5></li>
-        <p>Paypal integration complete. Now we need to make a transaction. Run the Laravel server using the Artisan command below.</p>
+        <p>Stripe subscription integration complete. Now we need to make a transaction. Run the Laravel server using the Artisan command below.</p>
         <p><i>php artisan serve</i></p>
     <p>Thus this tutorial I provide, hopefully useful.</p>
     <p>Thanks.</p>  
