@@ -12,30 +12,37 @@ use Stripe\Stripe;
 class PlanController extends Controller
 {
     public function __construct() {
-        
+        // Define a middleware function that is executed before processing a request
         $this->middleware(function ($request, $next) {
+
+            // Create a new instance of the Stripe client using the Stripe API key obtained from the 'STRIPE_SECRET' environment variable
             $this->stripe = new \Stripe\StripeClient(
                 env('STRIPE_SECRET')
             );
+
+            // Set the Stripe API key globally using the 'setApiKey' method from the 'Stripe' class
             $this->stripe_key = Stripe::setApiKey(env('STRIPE_SECRET'));
+
+            // Retrieve the current authenticated user using the 'auth()' function and assign it to the '$user' variable
             $this->user = auth()->user();
+
+            // Continue processing the request by invoking the '$next' callback and passing the '$request' object as a parameter
             return $next($request);
         });
     }
 
-    public function index()
+    public function checkout(Request $request) //Subscription
     {
-        $data['plans'] = Plan::all();
-        return view('dashboard',$data);
-    }
-
-    public function checkout(Request $request)
-    {
+        // Fetch a plan object based on the given 'plan_id' from the 'Plan' model
         $plan = Plan::where('plan_id', '=', $request->plan_id)->first();
+
+        // Set the success and cancel URLs for the checkout session
         $success_url = url('subscription-success');
         $cancel_url = url('subscription-fail');
 
+        // If the plan object exists
         if (!empty($plan)) {
+            // Create a new Stripe checkout session object 
             $session = \Stripe\Checkout\Session::Create([
                 'success_url' => $success_url,
                 'cancel_url' => $cancel_url,
@@ -47,6 +54,7 @@ class PlanController extends Controller
                 'currency' => env('STRIPE_CURRENCY'),
             ]);
 
+            // If the checkout session is successfully created
             if ($session) {
                 $booking_data = [
                     'session_id' => $session->id,
@@ -59,7 +67,11 @@ class PlanController extends Controller
                     'session_status' => $session->status,
                     'created_at' => Carbon::now()
                 ];
+
+                // Insert the booking data into the database using the 'Booking::insert' method
                 $insert = Booking::insert($booking_data);
+
+                // If the insert is successful, redirect the user to the checkout URL
                 if ($insert) {
                     return redirect()->to($session->url);
                 } else {
@@ -73,12 +85,18 @@ class PlanController extends Controller
         }
     }
 
-    public function payment(Request $request)
+    public function payment(Request $request) //One time payment
     {
         $amount = $request->amount;
+
+        // Set the success and cancel URLs for the checkout session
         $success_url = url('subscription-success');
         $cancel_url = url('subscription-fail');
+
+        // Check if amount is provided
         if ($amount) {
+
+            // Create line items array
             $line_items = [
                 [
                   'price_data'=> [
@@ -91,6 +109,8 @@ class PlanController extends Controller
                   'quantity'=> 1,
                 ],
             ];
+
+            // Create Stripe Checkout session
             $session = \Stripe\Checkout\Session::Create([
                 'success_url' => $success_url,
                 'cancel_url' => $cancel_url,
@@ -100,6 +120,7 @@ class PlanController extends Controller
                 'customer_creation' => 'always',
             ]);
 
+            // Store booking data and redirect to session URL if successful
             if ($session) {
                 $booking_data = [
                     'session_id' => $session->id,
@@ -113,6 +134,7 @@ class PlanController extends Controller
                     'created_at' => Carbon::now()
                 ];
                 $insert = Booking::insert($booking_data);
+
                 if ($insert) {
                     return redirect()->to($session->url);
                 } else {
@@ -139,12 +161,21 @@ class PlanController extends Controller
 
     public function webhook(Request $request)
     {
+        // Retrieve the Stripe webhook secret key from environment variables
         $endpoint_secret = env('STRIPE_WEBHOOK_SECRET');
 
+        // Get the request payload from the incoming webhook request
         $payload = $request->getContent();
+
+        // Get the Stripe signature header from the incoming webhook request
         $sig_header = $_SERVER['HTTP_STRIPE_SIGNATURE'];
+
+        // Initialize the event variable to null
         $event = null;
 
+        // Try to construct the event object from the received payload and signature
+        // If successful, the event object will contain the Stripe event data
+        // If not, catch the relevant exceptions and return a 400 status code
         try {
             $event = \Stripe\Webhook::constructEvent(
                 $payload, $sig_header, $endpoint_secret

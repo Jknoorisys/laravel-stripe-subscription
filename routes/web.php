@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PlanController;
+use App\Models\Plan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -24,7 +25,8 @@ Route::middleware([
     'verified'
 ])->group(function () {
     Route::get('/dashboard', function () {
-        return redirect('plans');
+        $data['plans'] = Plan::all();
+        return view('dashboard',$data);
     })->name('dashboard');
     Route::get('plans', [PlanController::class,'index'])->name('plans');
     Route::any('checkout', [PlanController::class,'checkout'])->name('checkout');
