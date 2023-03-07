@@ -38,14 +38,13 @@
             <li>Click Add endpoint</li>
             <li>Configuring the Webhook Signing Secret, To do so, retrieve your endpoint’s secret from your Dashboard’s webhooks settings. Select the added endpoint for which you want to obtain the secret, then click the Reveal button.</li>
                 <img src="https://cdn.wpsimplepay.com/wp-content/uploads/2022/12/stripe-reveal-secret-1536x324.png" alt="img">
-            <li></li>
-            <li></li>
         </ul>
     <li><h5>Configure the package</h5></li>
         <p>After the package installation is complete, you open your project and add the key and secret key that you got in the .env file.</p>
         <p>
         STRIPE_KEY=pk_test_xxxxxx<br>
         STRIPE_SECRET=sk_test_xxxxxx
+        STRIPE_WEBHOOK_SECRET=whsec_xxxxxx
         </p>
     <li><h5>Create Routes</h5></li>
         <p>Now we need to create an application route that we will test the application test transaction on. Open the route/web.php application route file and add the new routes</p>
