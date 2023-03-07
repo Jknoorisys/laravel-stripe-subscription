@@ -22,6 +22,7 @@
         <p><i>composer require stripe/stripe-php</i></p>
     <li><h5>Create Stripe account and get API keys</h5></li>
         <p>Create a Stripe account and login to the dashboard. Navigate through the Developers -> API keys menu to get the API keys. There is two type of standard API keys named secret key and publishable key. The secret key will be masked by default which has to be revealed by clicking reveal key token control explicitly.</p>
+        <img src="https://media.stripe.com/6050469652bc9a2aa6ea39ef25bd4980a723ad2a.png" alt="img" >
         <img src="https://techsolutionstuff.com/adminTheme/assets/img/stripe_payment_gateway_api_key.png" alt="img">
     <li><h5>Add Products on stripe</h5></li>
         <p>Create a Stripe account and login to the dashboard. Navigate through the Developers -> Add Product. There are two types of products, recurring and One time. Choose recurring one for stripe subscriptions.</p>
