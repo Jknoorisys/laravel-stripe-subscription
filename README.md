@@ -43,7 +43,7 @@
         <p>After the package installation is complete, you open your project and add the key and secret key that you got in the .env file.</p>
         <p>
         STRIPE_KEY=pk_test_xxxxxx<br>
-        STRIPE_SECRET=sk_test_xxxxxx
+        STRIPE_SECRET=sk_test_xxxxxx<br>
         STRIPE_WEBHOOK_SECRET=whsec_xxxxxx
         </p>
     <li><h5>Create Routes</h5></li>
