@@ -25,6 +25,7 @@ return new class extends Migration
             $table->string('plan_period_start');
             $table->string('plan_period_end');
             $table->float('amount_paid');
+            $table->string('invoice_url');
             $table->string('payment_status');
             $table->string('subscription_status');
             $table->timestamps();
