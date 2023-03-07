@@ -1,4 +1,17 @@
 <h1>Laravel Stripe Subscription</h1>
+<h4>Steps to clone laravel project</h4>
+<ul>
+    <li>Clone your project</li>
+    <li>Go to the folder application using cd command on your cmd or terminal</li>
+    <li>Run composer install on your cmd or terminal</li>
+    <li>Copy .env.example file to .env in the root folder using command <i> cp .env.example .env </i></li>
+    <li>Open your .env file and change the database name (DB_DATABASE) to whatever you have, username (DB_USERNAME) and password (DB_PASSWORD) field correspond to your configuration.</li>
+    <li>Run php artisan key:generate</li>
+    <li>Run php artisan migrate</li>
+    <li>Run php artisan serve</li>
+    <li>Go to http://localhost:8000/</li>
+</ul>
+
 <h4>Follow the steps below:</h4>
 <ul>
     <li> Create New Project </li>
