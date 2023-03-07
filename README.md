@@ -16,7 +16,7 @@
         <p>Create a new project with the command as below.</p>
         <p><i>composer create-project laravel/laravel-stripe-subscription --jet</i></p>
         <p>After the new project has been created, go to your project directory.</p>
-        <p><i>cd paypal</i></p>
+        <p><i>cd laravel-stripe-subscription</i></p>
     <li><h5>Install Packages for Stripe-php Using Composer</h5></li>
         <p>Run the following command.</p>
         <p><i>composer require stripe/stripe-php</i></p>
