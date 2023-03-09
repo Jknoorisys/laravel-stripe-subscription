@@ -661,7 +661,10 @@ class SubscriptionController extends Controller
                 Subscriptions::where('subscription_id', '=', $subscription->id)->update($subscription_data);
                 break;
             case 'invoice.paid':
+                // generate invoice pdf and send to customer
                 $invoice = $event->data->object;
+                
+                // helper function
                 generateInvoicePdf($invoice);
                 break;
             case 'checkout.session.completed':
