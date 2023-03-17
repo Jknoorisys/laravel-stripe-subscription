@@ -7,7 +7,7 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-# Laravel Stripe Subscription
+<p align="center"># Laravel Stripe Subscription</p>
 
 ## Steps to clone laravel project
 
@@ -32,13 +32,7 @@
 - Create Routes
 - Create blade file to create payment button
 - Run the app
-- Run APIs on Postman ()
-
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
-
-You may also try the [Laravel Bootcamp](https://bootcamp.laravel.com), where you will be guided through building a modern Laravel application from scratch.
-
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 2000 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+- Run APIs on Postman (https://api.postman.com/collections/18476697-2b8e4239-4264-4c5b-9ead-217e9242ef10?access_key=PMAT-01GVQH1D3EWJP761ESNDPP9J2D)
 
 ## Laravel Sponsors
 
