@@ -7,9 +7,9 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
 </p>
 
-## Laravel Stripe Subscription
+# Laravel Stripe Subscription
 
-Steps to clone laravel project
+## Steps to clone laravel project
 
 - Clone your project.
 - Go to the folder application using cd command on your cmd or terminal
@@ -21,9 +21,18 @@ Steps to clone laravel project
 - Run php artisan serve
 - Go to http://localhost:8000/
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## Follow the steps below:
 
-## Learning Laravel
+- Create New Project
+- Install Packages for Stripe-php Using Composer
+- Create Stripe account
+- Add Products on stripe
+- Add Webhook end point
+- Configure the package
+- Create Routes
+- Create blade file to create payment button
+- Run the app
+- Run APIs on Postman ()
 
 Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
 
