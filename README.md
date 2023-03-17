@@ -21,14 +21,13 @@
 - Add Webhook end point
 - Configure the package
 - Create Routes
-- Create blade file to create payment button
 - Run the app
 - Run APIs on Postman (https://api.postman.com/collections/18476697-2b8e4239-4264-4c5b-9ead-217e9242ef10?access_key=PMAT-01GVQH1D3EWJP761ESNDPP9J2D)
 
 <ol>
     <li><h5>Create a new project</h5></li>
         <p>Create a new project with the command as below.</p>
-        <p><i>composer create-project laravel/laravel-stripe-subscription --jet</i></p>
+        <p><i>composer create-project laravel/laravel-stripe-subscription</i></p>
         <p>After the new project has been created, go to your project directory.</p>
         <p><i>cd laravel-stripe-subscription</i></p>
     <li><h5>Install Packages for Stripe-php Using Composer</h5></li>
@@ -60,15 +59,13 @@
         STRIPE_WEBHOOK_SECRET=whsec_xxxxxx
         </p>
     <li><h5>Create Routes</h5></li>
-        <p>Now we need to create an application route that we will test the application test transaction on. Open the route/web.php application route file and add the new routes</p>
+        <p>Now we need to create an application route that we will test the application test transaction on. Open the route/api.php application route file and add the new routes</p>
         <p>Create Controller</p>
-        <p><i>php artisan make:controller PlanController</i></p>
+        <p><i>php artisan make:controller api/StripeController</i></p>
         <p>Run database migrations</p>
         <p><i>php artisan migrate</i></p>
         <p>Run database seeder</p>
         <p><i>php artisan db:seed --class=PlansSeeder</i></p>
-    <li><h5>Create blade file to create payment button</h5></li>
-        <p>create a view that will direct to process the transaction. Create blade view resources/views/transaction.blade.php file</p>
     <li><h5>Run the app</h5></li>
         <p>Stripe subscription integration complete. Now we need to make a transaction. Run the Laravel server using the Artisan command below.</p>
         <p><i>php artisan serve</i></p>
